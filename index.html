@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számológép</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        label{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Számológép</h1>
+    
+    <label style="color: red;" for="a">A=</label> <input type="text" id="a"><br>
+    <label for="b">B=</label> <input type="text" id="b"><br>
+    <br>
+    <button onclick="osszeadKattintas();">Összead</button>
+
+    <p id="ÖsszEredmeny"></p>
+
+    <label for="c">A=</label><input type="text" id="c"> <br>
+    <label for="d">B=</label><input type="text" id="d"> <br>
+    <br>
+    <button onclick="kivonKatt();">Kivon</button>
+
+    <p id="kivonEredmeny"></p>
+
+    <label for="e">A=</label><input type="text" id="e"> <br>
+    <label for="f">B=</label><input type="text" id="f"> <br>
+    <br>
+    <button onclick="szorozKatt();">Szoroz</button>
+
+    <p id="eredmeny"></p>
+
+    <label for="g">A=</label><input type="text" id="g"> <br>
+    <label for="h">B=</label><input type="text" id="h"> <br>
+    <br>
+    <button onclick="osztKatt();">Oszt</button>
+
+    <p id="eredmeny"></p>
+
+    <script>
+        function osszeadKattintas(){
+            var a = document.getElementById('a').value;
+            var b = document.getElementById('b').value;
+            var eredmeny = osszead(a,b);
+            //alert("Eredmény: " + eredmeny);
+            document.getElementById('ÖsszEredmeny').innerHTML = "ÖsszEredmény " + eredmeny;
+        }
+        function kivonKatt(){
+            var c = document.getElementById('c').value;
+            var d = document.getElementById('d').value;
+            var kivonEredmeny = kivon(c,d);
+            document.getElementById('kivonEredmeny').innerHTML = "kivonEredmény " + kivonEredmeny;
+        }
+        function szorozKatt(){
+            var e = document.getElementById('e').value;
+            var f = document.getElementById('f').value;
+            var eredmeny = szoroz(e,f);
+            document.getElementById('eredmeny').innerHTML = "Eredmény " + eredmeny;
+        }
+        function osztKatt(){
+            var g = document.getElementById('g').value;
+            var h = document.getElementById('h').value;
+            var eredmeny = oszt(g,h);
+            document.getElementById('eredmeny').innerHTML = "Eredmény " + eredmeny;
+        }
+
+    </script>
+    
+    <!-- javascript fájlok importálásakor a sorrendre ügyeljünk, más sorrendben hibát kapnánk! -->
+    <script src="muveletek.js" ></script>
+    <script src="masik.js"></script>
+    <script>
+        console.log(osszead('3','7'));
+        console.log(kivon('10','5'));
+        console.log(szoroz('3','7'));
+        console.log(oszt('10','5'));
+    </script>
+
+</body>
+</html>
